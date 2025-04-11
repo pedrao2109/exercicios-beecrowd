@@ -1,25 +1,18 @@
-# -*- coding: utf-8 -*-
-
-'''
-Escreva a sua solução aqui
-Code your solution here
-Escriba su solución aquí
-'''
-
-idade = int(input())
-
-def calc_id(a):
-    if a < 30:
-        print(f"""0 ano(s)
-0 mes(es)
-{a} dia(s)""")
-    elif a > 30 and a < 365:
-        print(f"""0 ano(s)
-{a//30} mes(es)
-{a%30} dia(s)""")
-    else:
-        print(f"""{a//365} ano(s)
-{(a%365)//30} mes(es)
-{(a%365)%30} dia(s)""")
-
-calc_id(idade)
+def decompor_valor(valor):
+    notas = [100, 50, 20, 10, 5, 2]
+    moedas = [1, 0.50, 0.25, 0.10, 0.05, 0.01]
+    valor_centavos = int(round(valor * 100))
+    print("NOTAS:")
+    for nota in notas:
+        nota_centavos = int(nota * 100)
+        qtd = valor_centavos // nota_centavos
+        valor_centavos %= nota_centavos
+        print(f"{qtd} nota(s) de R$ {nota:.2f}")
+    print("MOEDAS:")
+    for moeda in moedas:
+        moeda_centavos = int(round(moeda * 100))
+        qtd = valor_centavos // moeda_centavos
+        valor_centavos %= moeda_centavos
+        print(f"{qtd} moeda(s) de R$ {moeda:.2f}")
+entrada = float(input())
+decompor_valor(entrada)
